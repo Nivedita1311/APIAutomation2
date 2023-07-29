@@ -13,7 +13,6 @@ import static Enums.ErrorMessages.WITHOUTTIMEZONE_ERRORMESSAGE;
 
 public class GetStepdefs {
 
-    CRUDOperations crudOperations;
     Response response;
 
     @Given("I am on Weather App and selected {string}")
