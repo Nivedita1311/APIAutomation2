@@ -1,8 +1,5 @@
 package apiUrls;
 
-import Enums.Location;
-import Enums.Variables;
-
 import static Enums.Location.*;
 import static Enums.Variables.DailyParam;
 import static Enums.Variables.HourlyParam;

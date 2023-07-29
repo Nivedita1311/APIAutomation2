@@ -2,17 +2,12 @@ package stepdefinitions;
 
 import apiAuto.CRUDOperations;
 import apiUrls.ApiUrls;
-import io.cucumber.datatable.DataTable;
-import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
 import org.testng.Assert;
 
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Map;
 
 import static Enums.ErrorMessages.WITHOUTTIMEZONE_ERRORMESSAGE;
 
@@ -24,22 +19,17 @@ public class GetStepdefs {
     @Given("I am on Weather App and selected {string}")
     public void iAmOnWeatherAppAndSelected(String city) {
         switch (city) {
-            case "Auckland":
-
-                response = crudOperations.getWeatherDetails(ApiUrls.get_GenericHourly_Auckland_Url);
+            case "Auckland" -> {
+                response = CRUDOperations.getWeatherDetails(ApiUrls.get_GenericHourly_Auckland_Url);
                 response.then().log().all();
                 response.prettyPrint();
-                break;
-
-            case "Wellington":
-
-                response = crudOperations.getWeatherDetails(ApiUrls.get_GenericHourly_Wellington_Url);
+            }
+            case "Wellington" -> {
+                response = CRUDOperations.getWeatherDetails(ApiUrls.get_GenericHourly_Wellington_Url);
                 response.then().log().all();
                 response.prettyPrint();
-                break;
-
-            default:
-                throw new RuntimeException();
+            }
+            default -> throw new RuntimeException();
         }
     }
 
@@ -59,22 +49,17 @@ public class GetStepdefs {
     public void iAmOnWeatherAppAndSelectedWithDailyParameterAndNoTimeZone(String city) {
 
         switch (city) {
-            case "Auckland":
-
-                response = crudOperations.getWeatherDetails(ApiUrls.get_GenericDaily_Auckland_Url);
+            case "Auckland" -> {
+                response = CRUDOperations.getWeatherDetails(ApiUrls.get_GenericDaily_Auckland_Url);
                 response.then().log().all();
                 response.prettyPrint();
-                break;
-
-            case "Wellington":
-
-                response = crudOperations.getWeatherDetails(ApiUrls.get_GenericDaily_Wellington_Url);
+            }
+            case "Wellington" -> {
+                response = CRUDOperations.getWeatherDetails(ApiUrls.get_GenericDaily_Wellington_Url);
                 response.then().log().all();
                 response.prettyPrint();
-                break;
-
-            default:
-                throw new RuntimeException();
+            }
+            default -> throw new RuntimeException();
         }
     }
 }
